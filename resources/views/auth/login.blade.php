@@ -1,14 +1,14 @@
 @extends('layouts.layoutAuth')
 
 @section('content')
-    <div class="container">
-        <div class="form-image">
+    <div class="container" id="autenticacao">
+        <div class="form-image" id="autenticacao">
             <img src="{{Vite::asset("resources/img/bg1.png")}}" alt="" />
         </div>
-        <div class="form">
+        <div class="form" id="autenticacao">
             <form action="{{ route("loginAction"); }}" method="POST">
                 @csrf
-                <div class="form-header">
+                <div class="form-header" id="autenticacao">
                     <div class="title">
                         <h1>Faça seu login</h1>
                     </div>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
 
-                <div class="continue-button">
+                <div class="continue-button" id="autenticacao">
                     <button><a href="#">Continuar</a> </button>
                 </div>
             </form>

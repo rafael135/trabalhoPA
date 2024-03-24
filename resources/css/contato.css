@@ -1,17 +1,4 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden;
-    background-color: #ffffff;
-
-}
-
-.logo {
-    display: flex;
-    width: 60px;
-    margin-left: 40px;
-}
-
-.container {
+.container#contato {
     width: 70%;
     height: 70vh;
     display: flex;
@@ -42,7 +29,7 @@ body {
 
 
 
-.form-image {
+.form-image#contato {
     width: 50%;
     position: relative;
     padding: 1rem;
@@ -50,7 +37,7 @@ body {
     margin-top: -28%;
 }
 
-.form-image img {
+.form-image#contato img {
     width: 20rem;
 }
 
@@ -84,7 +71,7 @@ body {
 }
 
 
-.continue-button button {
+.continue-button#contato button {
     width: 100%;
     margin-top: 2.5rem;
     border: none;
@@ -97,11 +84,11 @@ body {
     position: relative;
 }
 
-.continue-button button:hover {
+.continue-button#contato button:hover {
     background-color: #6b63fff1;
 }
 
-.continue-button button a {
+.continue-button#contato button a {
     text-decoration: none;
     font-size: 0.93rem;
     font-weight: 500;

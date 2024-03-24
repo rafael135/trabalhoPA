@@ -16,22 +16,20 @@
 
 <body>
     <!-- ********navbar******** -->
-    <div class="fundo">
-        <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark navrosponse">
-            <div class="container-fluid">
-                <img src="{{ Vite::asset('resources/img/logo2.png') }}" alt="" class="logo">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon "></span>
-                </button>
-                <div class="collapse navbar-collapse nav justify-content-end col px-md-5" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-link" href="{{ route("login") }}">Login</a>
-                        <a class="nav-link" href="#">Sobre</a>
-                        <a class="nav-link" href="{{ route("contato") }}">Contato</a>
-                    </div>
+    <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark navrosponse">
+        <div class="container-fluid">
+            <img src="{{ Vite::asset('resources/img/logo2.png') }}" alt="" class="logo">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon "></span>
+            </button>
+            <div class="collapse navbar-collapse nav justify-content-end col px-md-5" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    <a class="nav-link" href="#">Sobre</a>
+                    <a class="nav-link" href="{{ route('contato') }}">Contato</a>
                 </div>
             </div>
-        </nav>
-        <!-- ********navbar******** -->
+        </div>
+    </nav>
+    <!-- ********navbar******** -->
