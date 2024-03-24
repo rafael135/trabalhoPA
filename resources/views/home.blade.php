@@ -2,6 +2,6 @@
 
 @section("content")
 
-    <div>Teste</div>
+    <div>{{ var_dump($loggedUser); }}</div>
 
 @endsection

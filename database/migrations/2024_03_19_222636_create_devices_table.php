@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('devices', function (Blueprint $table) {
-            $table->uuid();
-            $table->foreignUuid("user_uuid")->references("uuid")->on("users");
+            $table->id();
+            $table->foreignId("user_id")->references("id")->on("users");
             $table->integer("consumptionPerHour")->nullable(false);
             $table->string("brand", 100)->nullable(false);
             $table->string("name", 160)->nullable(false);
@@ -27,7 +27,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table("devices", function (Blueprint $table) {
-            $table->dropForeign("user_uuid");
+            $table->dropForeign("user_id");
         });
         Schema::dropIfExists('devices');
     }

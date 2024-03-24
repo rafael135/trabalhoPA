@@ -12,7 +12,7 @@ use Ramsey\Uuid\Uuid;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, HasUuids;
+    use HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -51,18 +51,18 @@ class User extends Authenticatable
     /**
      * Gera um novo uuid para o Model
      */
-    public function newUniqueId(): string
+    /* public function newUniqueId(): string
     {
         return (string)Uuid::uuid1();
-    }
+    } */
     
     /**
      * Pega as colunas que devem ter um identificador unico
      * 
      * @return array<int, string>
      */
-    public function uniqueIds(): array
+    /* public function uniqueIds(): array
     {
         return ["uuid"];
-    }
+    } */
 }

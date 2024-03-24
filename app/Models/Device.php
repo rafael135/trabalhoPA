@@ -9,10 +9,10 @@ use Ramsey\Uuid\Uuid;
 
 class Device extends Model
 {
-    use HasFactory, HasUuids;
+    use HasFactory;
 
     protected $fillable = [
-        'user_uuid',
+        'user_id',
         'consumptionPerHour',
         'brand',
         'name'
@@ -21,18 +21,18 @@ class Device extends Model
     /**
      * Gera um novo uuid para o Model
      */
-    public function newUniqueId(): string
+    /* public function newUniqueId(): string
     {
         return (string)Uuid::uuid1();
-    }
+    } */
     
     /**
      * Pega as colunas que devem ter um identificador unico
      * 
      * @return array<int, string>
      */
-    public function uniqueIds(): array
+    /* public function uniqueIds(): array
     {
         return ["uuid"];
-    }
+    } */
 }

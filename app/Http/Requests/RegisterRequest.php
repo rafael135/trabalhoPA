@@ -6,7 +6,6 @@ use App\Exceptions\AuthException;
 use App\Models\User;
 use Exception;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -35,7 +34,7 @@ class RegisterRequest extends FormRequest
         ];
     }
 
-    public function authenticate(Request $request) {
+    public function authenticate() {
         $name = $this->input("name");
         $email = $this->input("email");
         $password = $this->input("password");
@@ -61,7 +60,7 @@ class RegisterRequest extends FormRequest
         $success = Auth::attempt([
             "email" => $email,
             "password" => $password
-        ]);
+        ], true);
 
         return $success;
         

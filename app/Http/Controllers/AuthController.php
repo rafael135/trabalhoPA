@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class AuthController extends Controller
@@ -17,13 +19,15 @@ class AuthController extends Controller
     }
 
     function registerAction(RegisterRequest $request) {
-        $isAuthenticated = $request->authenticate($request);
+        $isAuthenticated = $request->authenticate();
 
-        if($isAuthenticated == false) {
-            
+        if($isAuthenticated == true) {
+            $request->session()->regenerate();
+        } else {
+            return redirect()->route("register")->with("errors", []);
         }
 
-        return Redirect::to("/", 302);
+        return redirect()->intended("/");
     }
 
     function loginView(Request $request) {
@@ -34,7 +38,15 @@ class AuthController extends Controller
         ]);
     }
 
-    function loginAction(Request $request) {
+    function loginAction(LoginRequest $request) {
+        $isAuthenticated = $request->authenticate();
 
+        if($isAuthenticated == true) {
+            $request->session()->regenerate();
+        } else {
+            return redirect()->route("login")->with("errors", []);
+        }
+
+        return redirect()->intended("/");
     }
 }
