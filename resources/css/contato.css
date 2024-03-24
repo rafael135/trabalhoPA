@@ -17,7 +17,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.212);
     margin-top: 130px;
     background-color: #E9E9E9;
     border-radius: 20px;
@@ -29,14 +29,37 @@ body {
     display: flex;
     background-color: #482A9E;
     margin-right: 600px;
+    border-radius: 20px;
+}
+
+.titulo{
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 90px;
+    margin-left: 20px;
+    color: white;
+}
+
+
+
+.form-image {
+    width: 50%;
+    position: relative;
+    padding: 1rem;
+    margin-left: 68%;
+    margin-top: -28%;
+}
+
+.form-image img {
+    width: 20rem;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
     margin-bottom: 1.1rem;
-    margin-left: -426px;
-    margin-right: 50px;
+    margin-left: -526px;
+    margin-right: 300px;
 }
 
 .form-group input {
@@ -69,6 +92,9 @@ body {
     padding: 0.62rem;
     border-radius: 5px;
     cursor: pointer;
+    margin-right: 500px;
+    margin-left: -400px;
+    position: relative;
 }
 
 .continue-button button:hover {
