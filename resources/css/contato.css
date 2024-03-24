@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    background-color: #ffffff;
+
+}
+
+.logo {
+    display: flex;
+    width: 60px;
+    margin-left: 40px;
+}
+
+.container {
+    width: 70%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
+    margin-top: 130px;
+    background-color: #E9E9E9;
+    border-radius: 20px;
+}
+
+.info {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    background-color: #482A9E;
+    margin-right: 600px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.1rem;
+    margin-left: -426px;
+    margin-right: 50px;
+}
+
+.form-group input {
+    margin: 8px;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0000001c;
+    font-size: 0.8rem;
+}
+
+.form-group input:hover {
+    background-color: #eeeeee75;
+}
+
+.form-group input:focus-visible {
+    outline: 1px solid #6c63ff;
+}
+
+.form-group input::placeholder {
+    color: #000000be;
+}
+
+
+.continue-button button {
+    width: 100%;
+    margin-top: 2.5rem;
+    border: none;
+    background-color: #482A9E;
+    padding: 0.62rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.continue-button button:hover {
+    background-color: #6b63fff1;
+}
+
+.continue-button button a {
+    text-decoration: none;
+    font-size: 0.93rem;
+    font-weight: 500;
+    color: #fff;
+}
+

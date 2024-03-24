@@ -30,7 +30,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffffffd7;
     padding: 1rem;
 }
 
@@ -139,70 +138,3 @@ body{
     font-weight: 500;
     color: #fff;
 }
-
-@media screen and (max-width: 1330px) {
-    .form-image {
-        width: 50%;
-        display:flex;
-        flex-direction: column;
-    }
-
-    .form-image img{
-        width: 11rem;
-    }
-
-    .container {
-        width:100%;
-        display: flex;
-        flex-direction: column;
-           
-    }
-
-    .form {
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 1064px) {
-    .form-image {
-            width: 50%;
-            display: flex;
-            flex-direction: column;
-        }
-
-    .container {
-        width: 90%;
-        height: auto;
-    }
-
-    .input-group {
-        flex-direction: column;
-        z-index: 5;
-        padding-right: 5rem;
-        max-height: 30rem;
-        flex-wrap: nowrap;
-    }
-
-    .nav{
-        padding-left: 220px;
-        padding-right: 220px;
-    }
-
-        .nav ul {
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            margin-left: 0;
-            position: absolute;
-            gap: 0;
-            top: 80px;
-            width: 100vw;
-            height: calc(100vh - 80px);
-            left: -100vw;
-            border-top: 1px solid #7A3FA3;
-            background-color: rgba(0, 0, 0, 0.6);
-            transition: all ease-in-out 200ms;
-        }
-
-}
-
