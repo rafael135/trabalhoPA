@@ -18,7 +18,7 @@
     <!-- ********navbar******** -->
     <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark navrosponse">
         <div class="container-fluid">
-            <img src="{{ Vite::asset('resources/img/logo2.png') }}" alt="" class="logo">
+            <a href="{{ route("home") }}"><img src="{{ Vite::asset('resources/img/logo2.png') }}" alt="" class="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon "></span>

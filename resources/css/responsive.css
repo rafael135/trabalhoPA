@@ -1,36 +1,36 @@
 
 /* parte do card do login */
 @media screen and (max-width: 1330px) {
-    .form-image {
+    .form-image#autenticacao {
         width: 50%;
         display: flex;
         flex-direction: column;
     }
 
-    .form-image img {
+    .form-image#autenticacao img {
         width: 11rem;
     }
 
-    .container {
+    .container#autenticacao {
         width: 100%;
         display: flex;
         flex-direction: column;
 
     }
 
-    .form {
+    .form#autenticacao {
         width: 100%;
     }
 }
 
 @media screen and (max-width: 1064px) {
-    .form-image {
+    .form-image#autenticacao {
         width: 50%;
         display: flex;
         flex-direction: column;
     }
 
-    .container {
+    .container#autenticacao {
         width: 90%;
         height: auto;
     }

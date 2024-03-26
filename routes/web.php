@@ -8,7 +8,7 @@ use Illuminate\Foundation\Http\Middleware\ValidateCsrfToken;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(["auth"])->group(function() {
-    Route::get("/", [HomeController::class, "index"]);
+    Route::get("/", [HomeController::class, "index"])->name("home");
 });
 
 Route::get("/contato", [ContatoController::class, "index"])->name("contato");
