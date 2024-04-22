@@ -5,6 +5,18 @@
         <div class="info">
             <div class="titulo">
                 <h1>Está com Duvida?</h1>
+                <div class="texto">
+                <p>
+                     • Não esta conseguindo fazer o login
+                </p>
+                <p>
+                     • Teve algum problema dentro do nosso sistema
+                </p>
+                <p>
+                     • Quer tirar alguma duvida
+                </p>
+                <h4>Nos envie sua mensagem para poder te ajudar</h4>
+                </div>
             </div>
         </div>
         <div class="form" id="contato">

@@ -69,3 +69,78 @@
       transition: all ease-in-out 200ms;
   }
   }
+
+
+  /* ----------------------------- Tela contato---------------------------------*/
+  
+@media screen and (max-width: 1442px) {
+    .container#contato {
+            width: 70%;
+            height: 70vh;
+            display: flex;
+            --bs-gutter-x: 0;
+            --bs-gutter-y: 0;
+        }
+
+    .info{
+        width: 50%;
+            height: 100%;
+            display: flex;
+            background-color: #482A9E;
+            margin-right: 300px;
+            border-radius: 20px;
+    }
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.1rem;
+        margin-left: -226px;
+        margin-right: 100px;
+    }
+
+    .continue-button#contato button {
+        margin-right: 300px;
+        margin-left: -200px;
+        position: relative;
+    }
+    .form-image#contato img {
+        width: 0rem;
+    }
+}
+
+@media screen and (max-width: 1064px) {
+.container#contato {
+        width: 70%;
+        height: 70vh;
+        display: flex;
+        --bs-gutter-x: 0;
+        --bs-gutter-y: 0;
+    }
+
+    .info {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        background-color: #482A9E;
+        margin-right: 300px;
+        border-radius: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.1rem;
+        margin-left: -226px;
+        margin-right: 100px;
+    }
+
+    .continue-button#contato button {
+        margin-right: 300px;
+        margin-left: -200px;
+        position: relative;
+    }
+
+    .form-image#contato img {
+        width: 0rem;
+    }
+}
