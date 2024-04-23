@@ -7,7 +7,7 @@
         <div class="container col-xxl-8 px-4 py-5">
           <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="col-10 col-sm-8 col-lg-12">
-              <img src="img/Information tab-pana.png" class=" img d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="400px" height="500px" loading="lazy">
+              <img src="{{ Vite::asset('resources/img/Information tab-pana.png') }}" class=" img d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="400px" height="500px" loading="lazy">
             </div>
 
         <div  class=" div px-5 pt-5 my-5 text-center ">
