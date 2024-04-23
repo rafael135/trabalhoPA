@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContatoController;
+use App\Http\controllers\SobreController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Http\Middleware\ValidateCsrfToken;
@@ -12,7 +13,7 @@ Route::middleware(["auth"])->group(function() {
 });
 
 Route::get("/contato", [ContatoController::class, "index"])->name("contato");
-
+Route::get("/sobre", [SobreController::class, "index"])->name("sobre");
 
 
 Route::get("/register", [AuthController::class, "registerView"])->name("register");
