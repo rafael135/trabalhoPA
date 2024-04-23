@@ -26,8 +26,9 @@
             <div class="collapse navbar-collapse nav justify-content-end col px-md-5" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link" href="{{ route('login') }}">Login</a>
-                    <a class="nav-link" href="#">Sobre</a>
+                    <a class="nav-link" href="#">Registrar</a>
                     <a class="nav-link" href="{{ route('contato') }}">Contato</a>
+                    <a class="nav-link" href="{{ route('sobre') }}">Sobre</a>
                 </div>
             </div>
         </div>
