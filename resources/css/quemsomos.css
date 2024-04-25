@@ -1,22 +1,11 @@
-body{
-
+.container-sobre {
+    height: 65vh;
     background-color: #482A9E;
 }
 
-.div{
-    background-color: #F8F8FF;
-    box-shadow: 10px 5px 5px black;
-    width: auto;
-
+.container-sobre img{
+    align-items: center;
+    justify-content: center;
 }
-
-.img{
-    width: 390px;
-    padding: auto;
-    height: 400px;
-    margin: center;
-    float: center;
-}
-
 
 
