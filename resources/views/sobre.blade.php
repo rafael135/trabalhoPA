@@ -4,7 +4,7 @@
 
 <main>
         
-        <div class="container container-sobre">
+        <div class=" container-sobre">
           <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div>
               <img src="{{ Vite::asset('resources/img/Information tab-pana.png') }}" class=" img d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="400px" height="500px" loading="lazy">

@@ -1,11 +1,14 @@
 .container-sobre {
-    height: 65vh;
+    height: 62vh;
+    display: block;
     background-color: #482A9E;
+    box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.2);
 }
 
 .container-sobre img{
     align-items: center;
     justify-content: center;
+    margin-top: 20px;
 }
 
 

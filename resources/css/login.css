@@ -15,7 +15,7 @@ div.fundo{
 
 .container#autenticacao {
     width: 80%;
-    /*height: 70vh;*/
+    height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
