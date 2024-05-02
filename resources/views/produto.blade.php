@@ -19,7 +19,7 @@
     <button type="" class="btn btn-primary">Adicionar</button>
   </div>
   <div class="excluir">
-    <button type="" class="btn btn-danger">Excluir</button>
+    <button type="" class="btn btn-danger">Limpar</button>
   </div>
 </form>
 </div>
@@ -27,52 +27,133 @@
 
 <! -- Formulario De produto  -- >
 
-<div class="container-lg">
-    <div class="table-responsive">
-        <div class="table-wrapper">
-            <table class="table table-bordered">
+<main class="table" id="customers_table">   
+    <h1>WATTSWEB</h1> 
+        <section class="table__body">
+            <table>
                 <thead>
                     <tr>
-                        <th>Nome</th>
-                        <th>Watts</th>
-                        <th>Data</th>
-                        <th>Ações</th>
+                        <th></th>
+                        <th> Nome</th>
+                        <th> Watts</th>
+                        <th> Data</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
+                        <td>1</td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                           <button class="btn btn-dark">limpar</button>
                         </td>
+                        <td> <button class="btn btn-danger">Excluir</button></td>
                     </tr>
                     <tr>
+                        <td>2</td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                           <button class="btn btn-dark">limpar</button>
                         </td>
+                        <td> <button class="btn btn-danger">Excluir</button></td>
                     </tr>
                     <tr>
+                        <td>3</td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                           <button class="btn btn-dark">limpar</button>
                         </td>
-                    </tr>      
+                        <td> <button class="btn btn-danger">Excluir</button></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                           <button class="btn btn-dark">limpar</button>
+                        </td>
+                        <td> <button class="btn btn-danger">Excluir</button></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                           <button class="btn btn-dark">limpar</button>
+                        </td>
+                        <td> <button class="btn btn-danger">Excluir</button></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                           <button class="btn btn-dark">limpar</button>
+                        </td>
+                        <td> <button class="btn btn-danger">Excluir</button></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                           <button class="btn btn-dark">limpar</button>
+                        </td>
+                        <td> <button class="btn btn-danger">Excluir</button></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                           <button class="btn btn-dark">limpar</button>
+                        </td>
+                        <td> <button class="btn btn-danger">Excluir</button></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                           <button class="btn btn-dark">limpar</button>
+                        </td>
+                        <td> <button class="btn btn-danger">Excluir</button></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                           <button class="btn btn-dark">limpar</button>
+                        </td>
+                        <td> <button class="btn btn-danger">Excluir</button></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                           <button class="btn btn-dark">limpar</button>
+                        </td>
+                        <td> <button class="btn btn-danger">Excluir</button></td>
+                    </tr>
                 </tbody>
             </table>
-        </div>
-    </div>
-</div>     
+        </section>
+    </main>
  @endsection
