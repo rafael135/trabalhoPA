@@ -144,3 +144,13 @@
         width: 0rem;
     }
 }
+
+/*--------------Tela de sobre-----------------------*/
+@media screen and (max-width: 1062px) {
+    .sobre{
+            width: auto;
+        }
+}
+
+
+/*--------------Tela de produto-----------------------*/

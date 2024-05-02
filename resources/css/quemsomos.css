@@ -1,14 +1,12 @@
 .container-sobre {
-    height: 62vh;
-    display: block;
+    height: 100%;
+    display: flex;
     background-color: #482A9E;
     box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.2);
 }
 
-.container-sobre img{
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
+.sobre img {
+    width: 23%;
+    display: flex;
+    margin: 0 auto;
 }
-
-
