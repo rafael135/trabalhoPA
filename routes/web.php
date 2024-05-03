@@ -19,10 +19,10 @@ Route::get("/sobre", [SobreController::class, "index"])->name("sobre");
 Route::get("/produto", [ProdutoController::class, "index"])->name("produto");
 
 Route::get("/register", [AuthController::class, "registerView"])->name("register");
-Route::post("/register", [AuthController::class, "registerAction"])->withoutMiddleware([ValidateCsrfToken::class])->name("registerAction");
+Route::post("/register", [AuthController::class, "registerAction"])->name("registerAction");
 
 Route::get("/login", [AuthController::class, "loginView"])->name("login");
-Route::post("/login", [AuthController::class, "loginAction"])->withoutMiddleware([ValidateCsrfToken::class])->name("loginAction");
+Route::post("/login", [AuthController::class, "loginAction"])->name("loginAction");
 
 Route::get('/dashboard', function () {
     return view('dashboard');

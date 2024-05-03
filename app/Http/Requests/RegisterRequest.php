@@ -40,6 +40,8 @@ class RegisterRequest extends FormRequest
         $password = $this->input("password");
         $passwordConfirm = $this->input("passwordConfirm");
 
+        //dd($name, $email, $password, $passwordConfirm);
+
         if($password != $passwordConfirm) {
             return redirect("/register")->with("errors", [
                 "differentPassword" => true
@@ -48,12 +50,13 @@ class RegisterRequest extends FormRequest
 
         try {
             User::create([
+                "state_id" => 24,
                 "name" => $name,
                 "email" => $email,
                 "password" => Hash::make($password)
             ]);
         } catch(Exception $ex) {
-
+            
         }
         
 

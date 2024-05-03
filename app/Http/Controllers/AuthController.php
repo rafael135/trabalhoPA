@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\Redirect;
 
 class AuthController extends Controller
 {
+    function __construct()
+    {
+        if(Auth::check() == true) {
+            return Redirect::to("/");
+        }
+    }
+
+
     function registerView(Request $request) {
         $errors = $request->session()->get("errors", null);
 

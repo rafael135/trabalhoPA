@@ -3,7 +3,7 @@
 @section("content")
 <div class="containercadastro" id="autenticacao">
         <div class="formcadastro" id="autenticacao">
-            <form action="{{ route("loginAction"); }}" method="POST">
+            <form action="{{ route("registerAction"); }}" method="POST">
                 @csrf
                 <div class="form-header-cadastro" id="autenticacao">
                     <div class="title">
@@ -13,8 +13,8 @@
 
                 <div class="input-group">
                     <div class="input-box">
-                        <label for="usuario">Usuario</label>
-                        <input id="usuario" type="text" name="usuario" placeholder="Usuario" required>
+                        <label for="name">Nome</label>
+                        <input id="name" type="text" name="name" placeholder="Nome" required>
                     </div>
 
                     <div class="input-box">
@@ -26,10 +26,16 @@
                         <label for="password">Senha</label>
                         <input id="password" type="password" name="password" placeholder="Digite sua senha" required>
                     </div>
+
+                    <div class="input-box">
+                        <label for="passwordConfirm">Repita a Senha</label>
+                        <input id="passwordConfirm" type="password" name="passwordConfirm" placeholder="Repita a sua senha" required>
+                    </div>
                 </div>
+                
 
                 <div class="continue-button" id="autenticacao">
-                    <button><a href="#">Cadastrar</a> </button>
+                    <button>Cadastrar</button>
                 </div>
             </form>
         </div>

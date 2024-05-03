@@ -121,6 +121,10 @@ div.fundo{
 
 .continue-button#autenticacao button {
     width: 100%;
+    text-decoration: none;
+    font-size: 0.93rem;
+    font-weight: 500;
+    color: #fff;
     margin-top: 2.5rem;
     border: none;
     background-color: #482A9E;
