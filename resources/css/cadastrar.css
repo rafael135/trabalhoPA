@@ -1,6 +1,6 @@
 .containercadastro#autenticacao {
-    width: 50%;
-    /*height: 70vh;*/
+    width: 70%;
+    height: 68vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,19 +11,60 @@
     border-radius: 20px;
 }
 
+p{
+    text-decoration: none;
+}
+
+.register-image#autenticacao {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.register-image#autenticacao img {
+    width: 26rem;
+}
+
 .formcadastro#autenticacao {
-    width: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
-    padding: 7rem;
+    padding: 3rem;
 }
 
-.form-header-cadastro {
-    margin-bottom: 1rem;
+.register-button#autenticacao button {
+    width: 100%;
+    text-decoration: none;
+    font-size: 0.93rem;
+    font-weight: 500;
+    color: #fff;
+    margin-top: 2.5rem;
+    border: none;
+    background-color: #482A9E;
+    padding: 0.62rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
+.register-button#autenticacao button:hover {
+    background-color: #6b63fff1;
+}
+
+.register-button#autenticacao button a {
+    text-decoration: none;
+    font-size: 0.93rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+
+.formcadastro#autenticacao {
+    display: flex;
+    width: 40%;
+    margin-left: 70px;
 }
 
 .form-header-cadastro#autenticacao h1::after {
@@ -41,4 +82,3 @@
 .form-header-cadastro h1{
     font-size: 30px;
 }
-

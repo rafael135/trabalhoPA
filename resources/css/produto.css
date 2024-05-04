@@ -1,53 +1,47 @@
 .cards{
-    margin-top: 100px;
     display: flex;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 100px;
 }
 
 .nomeeletronico{
-    position: absolute;
-    width: 200px;
-    height: 400px;
-    margin-left: 200px;
+    width: 260px;
+    display: inline-block;
 }
 
 .watts{
-    position: relative;
-    width: 200px;
-    height: 400px;
-    margin-left: 430px;
+    width: 150px;
+    display: inline-block;
 }
 
 .horas{
-    position: relative;
-    margin-top: -400px;
-    margin-left: 660px;
+    width: 200px;
+    display: inline-block;
 }
 
 .add{
-    position: absolute;
-    margin-top: -38px;
-    margin-left: 890px;
+    width: 100px;
+    display: inline-block;
+    margin-left: 20px;
 }
 
-.excluir {
-    position: absolute;
-    margin-top: -38px;
-    margin-left: 990px;
+.excluir{
+    width: 200px;
+    display: inline-block;
 }
 
 main.table {
     width: 82vw;
     height: 80vh;
     background-color: #fff5;
-    align-items: center;
-    justify-content: center;
-    margin-left: 200px;
-    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:20px;
     padding-top: 30px;
-    backdrop-filter: blur(7px);
     box-shadow: 0 .4rem .8rem #0005;
     border-radius: .8rem;
-    overflow: hidden;
 }
 
 main h1{

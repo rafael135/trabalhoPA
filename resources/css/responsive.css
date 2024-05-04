@@ -18,33 +18,59 @@
 
     }
 
-    .form#autenticacao {
-        width: 100%;
-    }
 }
 
-@media screen and (max-width: 1064px) {
+@media screen and (max-width: 1020px) {
     .form-image#autenticacao {
         width: 50%;
         display: flex;
-        flex-direction: column;
     }
 
     .container#autenticacao {
-        width: 90%;
-        height: auto;
-    }
-
-    .input-group {
-        flex-direction: column;
-        z-index: 5;
-        padding-right: 5rem;
-        max-height: 30rem;
-        flex-wrap: nowrap;
+        width: 80%;
+        height: 90%;
+        margin-top: 60px;
+        --bs-gutter-x: 0;
+        --bs-gutter-y: 0;
     }
 
 }
-/* --------------------------------------------------------------------------- */
+
+/* --------------------------- Tela de registro ------------------------------------------------ */
+
+@media screen and (max-width: 1330px) {    
+        .register-image#autenticacao {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+            }
+        
+            .register-image#autenticacao img {
+                width: 11rem;
+            }
+        
+            .containercadastro#autenticacao {
+                display: flex;
+            }
+}
+
+@media screen and (max-width: 1020px) {
+    .register-image#autenticacao {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+        }
+    
+        .register-image#autenticacao img {
+            width: 11rem;
+        }
+    
+        .containercadastro#autenticacao {
+            display: flex;
+        }
+}
+
+/* --------------------------- nav-bar ------------------------------------------------ */
 
 
 @media screen and (max-width: 1064px) {
@@ -148,9 +174,49 @@
 /*--------------Tela de sobre-----------------------*/
 @media screen and (max-width: 1062px) {
     .sobre{
-            width: auto;
+            margin-top: 50px;
+            overflow-y: scroll;
         }
 }
 
 
 /*--------------Tela de produto-----------------------*/
+
+@media screen and (max-width: 1330px) {
+.cards {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+.add {
+    position: relative;
+}
+
+.excluir {
+    position: absolute;
+}
+
+}
+
+@media screen and (max-width: 1020px) {
+
+.produtosback{
+    overflow-y: scroll;
+}
+
+.cards {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .add {
+        position: relative;
+        margin-top: 10px;
+    }
+    .excluir {
+        position: absolute;
+        margin-top: 10px;
+    }
+
+}
