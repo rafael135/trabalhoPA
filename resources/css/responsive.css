@@ -39,35 +39,19 @@
 /* --------------------------- Tela de registro ------------------------------------------------ */
 
 @media screen and (max-width: 1330px) {    
-        .register-image#autenticacao {
-                width: 50%;
-                display: flex;
-                flex-direction: column;
-            }
         
-            .register-image#autenticacao img {
-                width: 11rem;
-            }
-        
-            .containercadastro#autenticacao {
-                display: flex;
-            }
 }
 
 @media screen and (max-width: 1020px) {
-    .register-image#autenticacao {
-            width: 50%;
-            display: flex;
-            flex-direction: column;
+    .register-image#autenticacao img{
+            display: none;
         }
-    
-        .register-image#autenticacao img {
-            width: 11rem;
-        }
-    
-        .containercadastro#autenticacao {
-            display: flex;
-        }
+    .containercadastro#autenticacao {
+             width: 80%;
+             height: 90%;
+             --bs-gutter-x: 0;
+             --bs-gutter-y: 0;
+         }
 }
 
 /* --------------------------- nav-bar ------------------------------------------------ */
