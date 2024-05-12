@@ -11,5 +11,5 @@ Artisan::command('inspire', function () {
 
 
 
-Schedule::job(new CalculateResults)->monthly()->name("calculate")->onOneServer();
+Schedule::job(new CalculateResults)->everyFiveSeconds()->name("calculate")->onOneServer();
 

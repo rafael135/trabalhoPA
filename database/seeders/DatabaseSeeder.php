@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Device;
 use App\Models\State;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -26,5 +27,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             StateSeeder::class
         ]);
+
+        Device::factory(80)->create();
     }
 }

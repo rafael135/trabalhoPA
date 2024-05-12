@@ -13,7 +13,7 @@ class AuthController extends Controller
     function __construct()
     {
         if(Auth::check() == true) {
-            return Redirect::to("/");
+            Redirect::to("/");
         }
     }
 
