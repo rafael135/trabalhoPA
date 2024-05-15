@@ -1,0 +1,67 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: calc(100vh - 56px);
+    margin-top: 56px;
+    padding: 1rem;
+}
+
+.card .card-energyConsumed {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.card .card-energyConsumed h2 {
+    font-weight: 600;
+    letter-spacing: -0.025rem;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    margin: 0;
+}
+.card .card-energyConsumed h4 {
+    font-size: 0.875rem;
+    
+    color: rgb(110, 110, 110);
+    margin: 0;
+}
+
+
+.card .card-costPrice {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.card .card-costPrice h2 {
+    font-weight: 600;
+    letter-spacing: -0.025rem;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    margin: 0;
+}
+.card .card-costPrice h4 {
+    font-size: 0.875rem;
+    
+    color: rgb(110, 110, 110);
+    margin: 0;
+}
+
+
+.card .card-devicesConnected {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.card .card-devicesConnected h2 {
+    font-weight: 600;
+    letter-spacing: -0.025rem;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    margin: 0;
+}
+.card .card-devicesConnected h4 {
+    font-size: 0.875rem;
+    
+    color: rgb(110, 110, 110);
+    margin: 0;
+}

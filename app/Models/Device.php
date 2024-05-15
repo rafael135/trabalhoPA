@@ -12,7 +12,7 @@ class Device extends Model
 
     protected $fillable = [
         'user_id',
-        'consumptionPerHour',
+        'consumption_per_hour',
         'brand',
         'name'
     ];

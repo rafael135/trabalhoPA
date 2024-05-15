@@ -24,10 +24,10 @@ class DatabaseSeeder extends Seeder
 
         //State::factory()->create();
 
-        $this->call([
-            StateSeeder::class
-        ]);
+        //$this->call([
+        //    StateSeeder::class
+        //]);
 
-        Device::factory(80)->create();
+        Device::factory(10)->create();
     }
 }

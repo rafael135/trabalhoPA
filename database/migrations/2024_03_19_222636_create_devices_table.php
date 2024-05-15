@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('devices', function (Blueprint $table) {
             $table->id();
             $table->foreignId("user_id")->references("id")->on("users");
-            $table->integer("consumptionPerHour")->nullable(false);
+            $table->integer("consumption_per_hour")->nullable(false);
+            $table->integer("hours_per_day")->nullable(true);
             $table->string("brand", 100)->nullable(false);
             $table->string("name", 160)->nullable(false);
             $table->timestamps();

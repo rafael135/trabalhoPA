@@ -17,9 +17,11 @@ class DeviceFactory extends Factory
      */
     public function definition(): array
     {
+        $user = User::all()->random();
+
         return [
-            "user_id" => User::factory(),
-            "consumptionPerHour" => $this->faker->randomFloat(2, 8, 29),
+            "user_id" => $user->id,
+            "consumption_per_hour" => $this->faker->randomFloat(2, 50, 300),
             "brand" => $this->faker->company(),
             "name" => $this->faker->name()
         ];

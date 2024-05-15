@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId("user_id")->references("id")->on("users");
             $table->foreignId("device_id")->references("id")->on("devices");
-            $table->double("kw_cost_per_hour")->nullable(false);
-            $table->double("kw_cost")->nullable(false);
+            $table->float("kw_cost_per_hour")->nullable(false);
+            $table->float("kw_cost")->nullable(false);
+            $table->float("total_kw_consumed")->nullable(false);
             $table->timestamp("from")->nullable(false);
             $table->timestamp("to")->nullable(false);
             $table->timestamps();

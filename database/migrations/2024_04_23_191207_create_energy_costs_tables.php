@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create("energy_costs", function (Blueprint $table) {
             $table->id();
             $table->foreignId("user_id")->references("id")->on("users");
-            $table->double("kw_cost_per_hour")->nullable(false);
-            $table->double("kw_cost")->nullable(false);
+            $table->float("kw_cost_per_hour")->nullable(false);
+            $table->float("kw_cost")->nullable(false);
+            $table->float("total_kw_consumed")->nullable(false);
             $table->timestamp("from")->nullable(false);
             $table->timestamp("to")->nullable(false);
             $table->timestamps();

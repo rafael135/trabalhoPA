@@ -14,6 +14,7 @@ class EnergyCost extends Model
         'user_id',
         'kw_cost_per_hour',
         'kw_cost',
+        'total_kw_consumed',
         'from',
         'to'
     ];

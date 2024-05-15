@@ -56,6 +56,16 @@ class User extends Authenticatable
         return $this->hasMany(Device::class);
     }
 
+    public function deviceCosts(): HasMany
+    {
+        return $this->hasMany(DeviceCost::class);
+    }
+
+    public function energyCosts(): HasMany
+    {
+        return $this->hasMany(EnergyCost::class);
+    }
+
     public function state(): HasOne
     {
         return $this->hasOne(State::class);

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("state_name")->nullable(false);
             $table->string("state_acronym")->nullable(false);
-            $table->double("kiloWh_hour")->nullable(false);
+            $table->float("kiloWh_hour")->nullable(false);
         });
     }
 
