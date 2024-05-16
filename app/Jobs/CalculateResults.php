@@ -36,6 +36,8 @@ class CalculateResults implements ShouldQueue
 
         $nowGlobal = Carbon::now();
 
+        $nowGlobal = $nowGlobal->subMonths(2);
+
         $hoursToCalculate = $nowGlobal->daysInMonth() * 24;
         $daysInMonth = $nowGlobal->daysInMonth();
 
