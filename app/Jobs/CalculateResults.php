@@ -36,7 +36,7 @@ class CalculateResults implements ShouldQueue
 
         $nowGlobal = Carbon::now();
 
-        $nowGlobal = $nowGlobal->subMonths(2);
+        //$nowGlobal = $nowGlobal->addMonths(1);
 
         $hoursToCalculate = $nowGlobal->daysInMonth() * 24;
         $daysInMonth = $nowGlobal->daysInMonth();
@@ -48,12 +48,18 @@ class CalculateResults implements ShouldQueue
             $devicesLength = count($devices);
 
             $totalKwPerHour = 0;
+
+            $deviceHours = collect();
             
             for($j = 0; $j < $devicesLength; $j++) {
                 $currentDeviceCost = ($devices[$j]->consumption_per_hour / 1000.0) * $userState->kiloWh_hour;
                 $currentDeviceTotalCost = (($devices[$j]->consumption_per_hour * $hoursToCalculate) / 1000.0) * $userState->kiloWh_hour;
-                $currentDeviceTotalKwConsumed = (($devices[$i]->consumption_per_hour * $hoursToCalculate) / 1000.0);
-                $totalKwPerHour += $devices[$j]->consumption_per_hour;
+                $currentDeviceTotalKwConsumed = ($devices[$j]->hours_per_day == null) ? (($devices[$j]->consumption_per_hour * $hoursToCalculate) / 1000.0) : (($devices[$j]->consumption_per_hour * ($devices[$j]->hours_per_day * $daysInMonth)) / 1000.0);
+
+                
+                $deviceHours->push($devices[$j]->hours_per_day ?? $hoursToCalculate);
+
+                $totalKwPerHour += $devices[$j]->consumption_per_hour / 1000.0;
 
                 $now = Carbon::parse($nowGlobal->toDateTimeString());
                 $now = $now->subDays($daysInMonth);
@@ -73,9 +79,16 @@ class CalculateResults implements ShouldQueue
                 ]);
             }
 
-            $totalKwCostPerMonth = (($totalKwPerHour * $hoursToCalculate) / 1000.0) * $userState->kiloWh_hour;
-            $totalKwConsumedPerMonth = (($totalKwPerHour * $hoursToCalculate) / 1000.0);
-            $kwCost = ($totalKwPerHour / 1000.0) * $userState->kiloWh_hour;
+            $totalKwConsumption = 0;
+
+            for($j = 0; $j < count($deviceHours); $j++) {
+                $totalKwConsumption += (($devices[$j]->consumption_per_hour * $deviceHours[$j]) / 1000.0);
+            }
+
+            $totalKwCostPerMonth = $totalKwConsumption * $userState->kiloWh_hour;
+
+            $totalKwConsumedPerMonth = $totalKwConsumption;
+            $kwCost = $totalKwPerHour;
 
 
             $now = Carbon::parse($nowGlobal->toDateTimeString());

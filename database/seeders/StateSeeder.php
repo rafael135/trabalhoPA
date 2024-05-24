@@ -35,111 +35,116 @@ class StateSeeder extends Seeder
                 "priceHour" => 0.835
             ],
             4 => [
+                "name" => "Bahia",
+                "acronym" => "BA",
+                "priceHour" => 0.821
+            ],
+            5 => [
                 "name" => "Ceará",
                 "acronym" => "CE",
                 "priceHour" => 0.744
             ],
-            5 => [
+            6 => [
                 "name" => "Distrito Federal",
                 "acronym" => "DF",
                 "priceHour" => 0.766
             ],
-            6 => [
+            7 => [
                 "name" => "Espírito Santo",
                 "acronym" => "ES",
                 "priceHour" => 0.696
             ],
-            7 => [
+            8 => [
                 "name" => "Goiás",
                 "acronym" => "GO",
                 "priceHour" => 0.711
             ],
-            8 => [
+            9 => [
                 "name" => "Maranhão",
                 "acronym" => "MA",
                 "priceHour" => 0.719
             ],
-            9 => [
+            10 => [
                 "name" => "Mato Grosso",
                 "acronym" => "MT",
                 "priceHour" => 0.847
             ],
-            10 => [
+            11 => [
                 "name" => "Mato Grosso do Sul",
                 "acronym" => "MS",
                 "priceHour" => 0.870
             ],
-            11 => [
+            12 => [
                 "name" => "Minas Gerais",
                 "acronym" => "MG",
                 "priceHour" => 0.751
             ],
-            12 => [
+            13 => [
                 "name" => "Pará",
                 "acronym" => "PA",
                 "priceHour" => 0.962
             ],
-            13 => [
+            14 => [
                 "name" => "Paraíba",
                 "acronym" => "PB",
                 "priceHour" => 0.602
             ],
-            14 => [
+            15 => [
                 "name" => "Paraná",
                 "acronym" => "PR",
                 "priceHour" => 0.630
             ],
-            15 => [
+            16 => [
                 "name" => "Pernambuco",
                 "acronym" => "PE",
                 "priceHour" => 0.764
             ],
-            16 => [
+            17 => [
                 "name" => "Piauí",
                 "acronym" => "PI",
                 "priceHour" => 0.854
             ],
-            17 => [
+            18 => [
                 "name" => "Rio de Janeiro",
                 "acronym" => "RJ",
                 "priceHour" => 0.872
             ],
-            18 => [
+            19 => [
                 "name" => "Rio Grande do Norte",
                 "acronym" => "RN",
                 "priceHour" => 0.689
             ],
-            19 => [
+            20 => [
                 "name" => "Rio Grande do Sul",
                 "acronym" => "RS",
                 "priceHour" => 0.688
             ],
-            20 => [
+            21 => [
                 "name" => "Rondônia",
                 "acronym" => "RO",
                 "priceHour" => 0.709
             ],
-            21 => [
+            22 => [
                 "name" => "Roraima",
                 "acronym" => "RR",
                 "priceHour" => 0.661
             ],
-            22 => [
+            23 => [
                 "name" => "Santa Catarina",
                 "acronym" => "SC",
                 "priceHour" => 0.597
             ],
-            23 => [
+            24 => [
                 "name" => "São Paulo",
                 "acronym" => "SP",
                 "priceHour" => 0.684
             ],
-            24 => [
+            25 => [
                 "name" => "Sergipe",
                 "acronym" => "SE",
                 "priceHour" => 0.618
             ],
-            25 => [
+            26 => [
                 "name" => "Tocantins",
                 "acronym" => "TO",
                 "priceHour" => 0.756
@@ -147,7 +152,7 @@ class StateSeeder extends Seeder
         ];
 
 
-        for($i = 0; $i < 26; $i++) {
+        for($i = 0; $i < 27; $i++) {
             DB::table("states")->insert([
                 "state_name" => $states[$i]["name"],
                 "state_acronym" => $states[$i]["acronym"],

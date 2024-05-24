@@ -44,11 +44,13 @@ class HomeController extends Controller
 
         //ddd();
 
+        
+
         return view("home", [
             "loggedUser" => $loggedUser,
             "energyConsumedMonth" => [
                 "currentMonth" => round(($costLast30Days != null) ? $costLast30Days->total_kw_consumed : 0.0, 2),
-                "currentMonthPrice" => round($costLast30Days->kw_cost, 2),
+                "currentMonthPrice" => round(($costLast30Days != null) ? $costLast30Days->kw_cost : 0.0, 2),
                 "difference" => $differenceInMonth,
                 "differencePercentage" => $differenceInMonthPercentage
             ],

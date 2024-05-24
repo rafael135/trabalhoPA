@@ -6,7 +6,7 @@
     <div class="dashboard-container gap-4">
         <div class="row">
             <div class="col-12">
-                <a href="" class="btn btn-primary">
+                <a href="{{ route("eletronicos") }}" class="btn btn-primary">
                     Cadastrar Eletrônico
                 </a>
             </div>
@@ -94,33 +94,38 @@
             </div>
 
             <script type="text/javascript">
-                let x = [
-                    @for ($i = 0; $i < count($energyConsumedMontly['months']); $i++)
-                        <?php
-                        echo '"' . $energyConsumedMontly['months'][$i] . '"';
-                        if ($i + 1 < count($energyConsumedMontly['months'])) {
-                            echo ',';
-                        }
-                        ?>
-                    @endfor
-                ];
+                @if(count($energyConsumedMontly["monthsConsume"]) > 0)
+                    let x = [
+                        @for ($i = 0; $i < count($energyConsumedMontly['months']); $i++)
+                            <?php
+                            echo '"' . $energyConsumedMontly['months'][$i] . '"';
+                            if ($i + 1 < count($energyConsumedMontly['months'])) {
+                                echo ',';
+                            }
+                            ?>
+                        @endfor
+                    ];
 
-                let y = [
-                    @for ($i = 0; $i < count($energyConsumedMontly['monthsConsume']); $i++)
-                        <?php
-                        echo $energyConsumedMontly['monthsConsume'][$i]->total_kw_consumed;
-                        if ($i + 1 < count($energyConsumedMontly['monthsConsume'])) {
-                            echo ',';
-                        }
-                        ?>
-                    @endfor
-                ];
+                    let y = [
+                        @for ($i = 0; $i < count($energyConsumedMontly['monthsConsume']); $i++)
+                            <?php
+                            echo $energyConsumedMontly['monthsConsume'][$i]->total_kw_consumed;
+                            if ($i + 1 < count($energyConsumedMontly['monthsConsume'])) {
+                                echo ',';
+                            }
+                            ?>
+                        @endfor
+                    ];
+                @else
+                    let x = [];
+                    let y = [];
+                @endif
             </script>
 
             <script src="{{ Vite::asset('resources/js/home/eletricityUsage.js') }}"></script>
         </div>
 
-        <div class="d-flex row-cols-4 gap-4">
+        <div class="d-etow-cols-4 gap-4">
             <div class="card flex-fill">
                 <div class="card-body">
                     <div class="card-deviceCosts">
@@ -135,30 +140,37 @@
             </div>
 
             <script type="text/javascript">
-                let labels = [
-                    @for ($i = 0; $i < $devices['countDevices']; $i++)
-                        <?php
-                        echo '"' . $devices['devices'][$i]->name . '"';
-                        if ($i + 1 < $devices['countDevices']) {
-                            echo ',';
-                        }
-                        ?>
-                    @endfor
-                ];
+                @if(count($devices["deviceCosts"]) > 0)
+                    let labels = [
+                        @for ($i = 0; $i < $devices['countDevices']; $i++)
+                            <?php
+                            echo '"' . $devices['devices'][$i]->name . '"';
+                            if ($i + 1 < $devices['countDevices']) {
+                                echo ',';
+                            }
+                            ?>
+                        @endfor
+                    ];
 
-                let values = [
-                    @for ($i = 0; $i < $devices['countDevices']; $i++)
-                        <?php
-                        echo round($devices['deviceCosts'][$i]->kw_cost, 2);
-                        if ($i + 1 < $devices['countDevices']) {
-                            echo ',';
-                        }
-                        ?>
-                    @endfor
-                ];
+                    let values = [
+                        @for ($i = 0; $i < $devices['countDevices']; $i++)
+                            <?php
+                            echo round($devices['deviceCosts'][$i]->kw_cost, 2);
+                            if ($i + 1 < $devices['countDevices']) {
+                                echo ',';
+                            }
+                            ?>
+                        @endfor
+                    ];
+                @else
+                    let labels = [];
+                    let values[];
+                @endif
             </script>
 
-            <script src="{{ Vite::asset('resources/js/home/eletricityUsagePerDevice.js') }}"></script>
+            <script src="{{ Vite::asset("resources/js/home/eletricityUsagePerDevice.js") }}"></script>
         </div>
     </div>
+
+    
 @endsection

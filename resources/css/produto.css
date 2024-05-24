@@ -23,7 +23,6 @@
 .add{
     width: 100px;
     display: inline-block;
-    margin-left: 20px;
 }
 
 .excluir{
@@ -31,84 +30,195 @@
     display: inline-block;
 }
 
-main.table {
-    width: 82vw;
-    height: 80vh;
-    background-color: #fff5;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top:20px;
-    padding-top: 30px;
+main {
+    padding-top: 1rem;
+}
+
+main.container {
+    height: 100vh;
+    padding-top: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    justify-content: center;
+}
+main.container button:nth-child(1) {
+    background-color: #3A3781;
+}
+main.container button:nth-child(1):hover {
+    background-color: #482A9E;
+}
+main.container button:nth-child(1):active {
+    background-color: #482A9E;
+}
+
+main #devices {
+    border: 1px solid rgba(78, 78, 78, 0.692);
     box-shadow: 0 .4rem .8rem #0005;
-    border-radius: .8rem;
+    flex: 1;
 }
 
-main h1{
-    font-size: 30px;
-    font-weight: 300;
-    font-style: italic;
-    margin-left: 40px;
-    margin-top: 10px;
+main #devices div#devices-head {
+    border: none;
+    background-color: #482A9E;
 }
-
-
-
-.table__body {
-    width: 95%;
-    max-height: calc(89% - 1.6rem);
-    background-color: #ffffff;
-    margin: .8rem auto;
-    border-radius: .6rem;
-    overflow: auto;
-    overflow: overlay;
-}
-
-
-.table__body::-webkit-scrollbar {
-    width: 0.5rem;
-    height: 0.5rem;
-}
-
-.table__body::-webkit-scrollbar-thumb {
-    border-radius: .5rem;
-    background-color: #0004;
-    visibility: hidden;
-}
-
-.table__body:hover::-webkit-scrollbar-thumb {
-    visibility: visible;
-}
-
-
-table {
-    width: 100%;
-}
-
-table,
-th,
-td {
-    border-collapse: collapse;
-    padding: 1rem;
-    text-align: left;
-}
-
-thead th {
-    position: sticky;
-    top: 0;
-    left: 0;
-    background-color: #1c1c1c;
-    color: white;
-}
-
-tbody tr:nth-child(even) {
-    background-color: #0000000b;
-}
-
-
-
-.status {
-    padding: .4rem 0;
-    border-radius: 2rem;
+main #devices div#devices-head div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
     text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px 4px;
+    border-right: 1px solid rgba(78, 78, 78, 0.692);
+    width: 25%;
+}
+main #devices div#devices-head div:nth-child(3) {
+    width: 12.5%;
+}
+main #devices div#devices-head div:nth-child(4) {
+    width: 12.5%;
+}
+main #devices div#devices-head div:last-child {
+    border-right: none;
+}
+
+main #devices div#devices-body {
+    height: 100%;
+    position: relative;
+}
+
+main #devices .device-status {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+main #devices .device-status.loading {
+    display: flex;
+}
+
+
+main #devices div.device-item {
+    display: flex;
+    
+    border-top: 1px solid rgba(78, 78, 78, 0.692);
+}
+main #devices div.device-item:last-child {
+    border-bottom: 1px solid rgba(78, 78, 78, 0.692);
+}
+main #devices div.device-item#device-template {
+    display: none;
+}
+main #devices div.device-item div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    text-align: center;
+    font-weight: normal;
+    font-size: 14px;
+    padding: 10px 4px;
+    border-right: 1px solid rgba(78, 78, 78, 0.692);
+}
+main #devices div.device-item div span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease-in-out 150ms;
+}
+main #devices div.device-item div span:hover {
+    cursor: pointer;
+}
+main #devices div.device-item div span svg {
+    fill: #111;
+    transition: all ease-in-out 150ms;
+}
+main #devices div.device-item div span:hover svg {
+    color: #482A9E !important;
+    fill: #482A9E !important;
+}
+main #devices div.device-item div:nth-child(3) {
+    width: 12.5%;
+}
+main #devices div.device-item div:nth-child(4) {
+    width: 12.5%;
+}
+main #devices div.device-item div:last-child {
+    border-right: none;
+}
+
+.modal-body {
+    position: initial;
+}
+
+.modal-body #updateModalStatus {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.25);
+    z-index: 30;
+}
+.modal-body #updateModalStatus.loading {
+    display: flex;
+}
+.modal-body button {
+    background-color: #482A9E;
+    transition: all ease-in-out 150ms;
+}
+.modal-body button:hover {
+    background-color: #3A3781;
+}
+
+
+ul.pagination a {
+    color: #482A9E;
+    font-weight: bold;
+}
+ul.pagination a:focus {
+    box-shadow: 0 0 0 .2rem rgba(57, 55, 129, 0.4);
+}
+ul.pagination a:hover {
+    color: #3A3781;
+}
+
+.pagination-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+.pagination-info span {
+    color: #482A9E;
+    font-size: 20px;
+}
+.pagination-info input {
+    max-width: fit-content;
+    text-align: center;
+    padding: 8px !important;
+}
+.pagination-info input:focus {
+    box-shadow: 0 0 0 .2rem rgba(57, 55, 129, 0.4);
+    border-color: #3A3781;
+}
+ul.pagination li.active a {
+    background-color: #3A3781 !important;
+    color: #FFF !important;
+}
+
+ul.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
 }

@@ -28,6 +28,6 @@ class DatabaseSeeder extends Seeder
         //    StateSeeder::class
         //]);
 
-        Device::factory(10)->create();
+        Device::factory(2)->create();
     }
 }

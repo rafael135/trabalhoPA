@@ -6,7 +6,7 @@
     <div class=" container-sobre">
         <div class="flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="sobre">
-                <img src="{{ Vite::asset('resources/img/Information tab-pana.png') }}"
+                <img src="{{ Vite::asset('resources/img/Information tab-pana.png') }}" />
             </div>
         </div>
     </div>

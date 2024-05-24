@@ -22,6 +22,7 @@ class DeviceFactory extends Factory
         return [
             "user_id" => $user->id,
             "consumption_per_hour" => $this->faker->randomFloat(2, 50, 300),
+            "hours_per_day" => $this->faker->randomNumber(1),
             "brand" => $this->faker->company(),
             "name" => $this->faker->name()
         ];

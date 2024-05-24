@@ -7,11 +7,13 @@
 
     <title>Trabalho PA</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src=""></script>
+
+    <link href="{{ Vite::asset('resources/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Arquivos são carregados através do Vite -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @routes
 </head>
 
 <body>
@@ -25,10 +27,15 @@
             </button>
             <div class="collapse navbar-collapse nav justify-content-end col px-md-5" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="{{ route('login') }}">Login</a>
-                    <a class="nav-link" href="{{ route('register') }}">Registrar</a>
                     <a class="nav-link" href="{{ route('contato') }}">Contato</a>
                     <a class="nav-link" href="{{ route('sobre') }}">Sobre</a>
+
+                    @if($loggedUser == null)
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        <a class="nav-link" href="{{ route('register') }}">Registrar</a>
+                    @else
+                        <a class="nav-link" href="{{ route('logout') }}">Sair</a>
+                    @endif
                 </div>
             </div>
         </div>

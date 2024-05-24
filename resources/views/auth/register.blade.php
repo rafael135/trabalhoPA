@@ -6,7 +6,7 @@
             <img src="{{Vite::asset("resources/img/Mobile login-pana.png")}}" alt="" />
     </div>
         <div class="formcadastro" id="autenticacao">
-            <form action="{{ route("registerAction"); }}" method="POST">
+            <form action="{{ route("registerAction") }}" method="POST">
                 @csrf
                 <div class="form-header-cadastro" id="autenticacao">
                     <div class="title">

@@ -6,7 +6,7 @@
             <img src="{{Vite::asset("resources/img/bg1.png")}}" alt="" />
         </div>
         <div class="form" id="autenticacao">
-            <form action="{{ route("loginAction"); }}" method="POST">
+            <form action="{{ route("loginAction") }}" method="POST">
                 @csrf
                 <div class="form-header" id="autenticacao">
                     <div class="title">

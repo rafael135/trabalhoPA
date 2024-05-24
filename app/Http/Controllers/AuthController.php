@@ -22,6 +22,7 @@ class AuthController extends Controller
         $errors = $request->session()->get("errors", null);
 
         return view("auth.register", [
+            "loggedUser" => null,
             "errors" => $errors
         ]);
     }
@@ -42,6 +43,7 @@ class AuthController extends Controller
         $errors = $request->session()->get("errors", null);
 
         return view("auth.login", [
+            "loggedUser" => null,
             "errors" => $errors
         ]);
     }
@@ -56,5 +58,13 @@ class AuthController extends Controller
         }
 
         return redirect()->intended("/");
+    }
+
+    function logout(Request $request) {
+        Auth::logout();
+        
+        $request->session()->regenerate(true);
+
+        return Redirect::route("login");
     }
 }
