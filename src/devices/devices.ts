@@ -281,6 +281,8 @@ const viewDevice = async (e: MouseEvent) => {
     updateModalStatus.classList.add("loading");
     updateDeviceBtn.click();
 
+    console.log((e.target! as HTMLSpanElement).parentElement!);
+
     let deviceId = (e.target! as HTMLSpanElement).parentElement!.getAttribute("data-id");
 
     // @ts-expect-error

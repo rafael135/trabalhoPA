@@ -14,12 +14,11 @@ class HomeController extends Controller
         $energyCosts = $loggedUser->energyCosts()->getResults();
         $latestData = $loggedUser->devices()->select(["created_at"])->orderBy("created_at", "DESC")->getResults();
         $userDevices = $loggedUser->devices()->getResults();
-        $countDevices = count($userDevices);
         
         $deviceCosts = $loggedUser->deviceCosts()->orderBy("to", "DESC")->limit(count($userDevices))->getResults();
+        $countDevices = count($deviceCosts);
 
-
-        
+        //dd($userDevices, $deviceCosts);
 
         $costLast30Days = $loggedUser->energyCosts()->orderBy("to", "DESC")->first();
         $costLast60Days = $loggedUser->energyCosts()->orderBy("to", "DESC")->getResults()[1] ?? null;

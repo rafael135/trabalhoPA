@@ -70,3 +70,18 @@
     gap: 24px;
     height: 100%;
 }
+
+.btn-deviceRegister {
+    color: #FFF;
+    background-color: #482A9E;
+    
+    transition: all ease-in-out 150ms;
+}
+.btn-deviceRegister:hover {
+    color: #FFF;
+    background-color: #272561;
+}
+.btn-deviceRegister:active {
+    color: #FFF !important;
+    background-color: #211f53 !important;
+}

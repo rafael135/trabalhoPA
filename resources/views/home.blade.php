@@ -6,7 +6,7 @@
     <div class="dashboard-container gap-4">
         <div class="row">
             <div class="col-12">
-                <a href="{{ route("eletronicos") }}" class="btn btn-primary">
+                <a href="{{ route("eletronicos") }}" class="btn btn-deviceRegister">
                     Cadastrar Eletrônico
                 </a>
             </div>
@@ -22,7 +22,7 @@
                         </div>
 
                         <div class="d-flex flex-column gap-1 mt-auto">
-                            <h2>{{ $energyConsumedMonth['currentMonth'] }} kWh</h2>
+                            <h2>{{ $energyConsumedMonth['currentMonth'] }} kW</h2>
                             <h4>
                                 <span class="@if($energyConsumedMonth['differencePercentage'] > 0) text-success @else text-danger @endif">
                                     @if ($energyConsumedMonth['differencePercentage'] > 0)

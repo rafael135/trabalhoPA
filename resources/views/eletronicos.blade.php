@@ -63,7 +63,7 @@
                 </div>
                 <div class="modal-body">
                     <div id="updateModalStatus" class="position-absolute">
-                        <div class="spinner-grow text-primary" role="status">
+                        <div class="spinner-grow" style="color: #3A3781;" role="status">
                             <span class="visually-hidden">Loading...</span>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
 
             <div id="devices-body" class="d-flex flex-column">
                 <div class="device-status">
-                    <div class="spinner-grow text-primary" role="status">
+                    <div class="spinner-grow" style="color: #3A3781;" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
                 </div>
@@ -145,7 +145,7 @@
                     <div id="item-consumptionPerHour" class="device-consumptionPerHour"></div>
                     <div id="item-hoursPerDay" class="device-hoursPerDay"></div>
                     <div id="device-actions" class="device-actions">
-                        <span data-id="">
+                        <span class="device-viewBtn" data-id="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-search" viewBox="0 0 16 16">
                                 <path
@@ -159,7 +159,7 @@
 
         </div>
 
-        <nav aria-label="Navegação de Curriculos" class="mt-auto">
+        <nav aria-label="Navegação de Eletrônicos" class="mt-auto">
             <div class="pagination-info">
                 <span>Exibindo</span>
                 <input class="form-control" min="1" value="1" max="1" type="number"

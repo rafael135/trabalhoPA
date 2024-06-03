@@ -128,6 +128,8 @@ main #devices div.device-item div {
     border-right: 1px solid rgba(78, 78, 78, 0.692);
 }
 main #devices div.device-item div span {
+    width: 24px;
+    height: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -143,6 +145,7 @@ main #devices div.device-item div span svg {
 main #devices div.device-item div span:hover svg {
     color: #482A9E !important;
     fill: #482A9E !important;
+    scale: 1.1;
 }
 main #devices div.device-item div:nth-child(3) {
     width: 12.5%;
