@@ -1,4 +1,4 @@
--- trabalhopa.states definition
+-- states
 
 CREATE TABLE `states` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -9,7 +9,7 @@ CREATE TABLE `states` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- trabalhopa.users definition
+-- users
 
 CREATE TABLE `users` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -28,7 +28,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- trabalhopa.devices definition
+-- devices
 
 CREATE TABLE `devices` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -41,11 +41,11 @@ CREATE TABLE `devices` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `devices_user_id_foreign` (`user_id`),
-  CONSTRAINT `devices_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+  CONSTRAINT `devices_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- trabalhopa.energy_costs definition
+-- energy_costs
 
 CREATE TABLE `energy_costs` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -59,11 +59,11 @@ CREATE TABLE `energy_costs` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `energy_costs_user_id_foreign` (`user_id`),
-  CONSTRAINT `energy_costs_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+  CONSTRAINT `energy_costs_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- trabalhopa.device_costs definition
+-- device_costs
 
 CREATE TABLE `device_costs` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -79,6 +79,6 @@ CREATE TABLE `device_costs` (
   PRIMARY KEY (`id`),
   KEY `device_costs_user_id_foreign` (`user_id`),
   KEY `device_costs_device_id_foreign` (`device_id`),
-  CONSTRAINT `device_costs_device_id_foreign` FOREIGN KEY (`device_id`) REFERENCES `devices` (`id`),
-  CONSTRAINT `device_costs_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+  CONSTRAINT `device_costs_device_id_foreign` FOREIGN KEY (`device_id`) REFERENCES `devices` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `device_costs_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
