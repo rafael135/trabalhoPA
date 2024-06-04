@@ -36,7 +36,9 @@ class CalculateResults implements ShouldQueue
 
         $nowGlobal = Carbon::now();
 
-        //$nowGlobal = $nowGlobal->addMonths(1);
+        //$nowGlobal->subDays(30);
+
+        $nowGlobal = $nowGlobal->addMonths(2);
 
         $hoursToCalculate = $nowGlobal->daysInMonth() * 24;
         $daysInMonth = $nowGlobal->daysInMonth();
@@ -92,10 +94,9 @@ class CalculateResults implements ShouldQueue
 
 
             $now = Carbon::parse($nowGlobal->toDateTimeString());
-            $now = $now->subHours(4);
             $from = $now->toDateTimeString();
 
-            $now = $now->addHours(4);
+            $now = $now->addDays(30);
             $to = $now->toDateTimeString();
 
             EnergyCost::create([

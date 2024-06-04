@@ -107,7 +107,7 @@ main #devices .device-status.loading {
 
 main #devices div.device-item {
     display: flex;
-    
+    flex: 1;
     border-top: 1px solid rgba(78, 78, 78, 0.692);
 }
 main #devices div.device-item:last-child {
@@ -154,6 +154,9 @@ main #devices div.device-item div:nth-child(4) {
     width: 12.5%;
 }
 main #devices div.device-item div:last-child {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     border-right: none;
 }
 
@@ -182,6 +185,26 @@ main #devices div.device-item div:last-child {
 }
 .modal-body button:hover {
     background-color: #3A3781;
+}
+
+.modal#deleteDeviceModal button {
+    border-color: transparent;
+}
+.modal#deleteDeviceModal .btn-confirm {
+    background-color: rgb(26, 146, 26);
+    color: #FFF;
+    flex: 1;
+}
+.modal#deleteDeviceModal .btn-confirm:hover {
+    background-color: rgb(19, 128, 19);
+}
+.modal#deleteDeviceModal .btn-cancel {
+    background-color: rgb(211, 35, 35);
+    color: #FFF;
+    flex: 1;
+}
+.modal#deleteDeviceModal .btn-cancel:hover {
+    background-color: rgb(184, 26, 26);
 }
 
 

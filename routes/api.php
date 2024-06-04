@@ -12,3 +12,4 @@ Route::post("/device", [DeviceController::class, "createDevice"])->withoutMiddle
 Route::get("/device", [DeviceController::class, "getDevices"])->withoutMiddleware(["auth:sanctum"])->name("api.getDevices");
 Route::get("/device/{id}", [DeviceController::class, "getDevice"])->withoutMiddleware(["auth:sanctum"])->name("api.getDevice");
 Route::put("/device/{id}", [DeviceController::class, "updateDevice"])->withoutMiddleware(["auth:sanctum"])->name("api.updateDevice");
+Route::delete("/device/{id}", [DeviceController::class, "deleteDevice"])->withoutMiddleware(["auth:sanctum"])->name("api.deleteDevice");

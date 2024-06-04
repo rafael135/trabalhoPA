@@ -179,4 +179,36 @@ class DeviceController extends Controller
             "status" => 200
         ], 200);
     }
+
+    public function deleteDevice(Request $request, $id) {
+        $rememberToken = $request->header("Authorization", null);
+
+        if($rememberToken == null) {
+            return response()->json([
+                "status" => 403
+            ], 403);
+        }
+
+        $loggedUser = User::where("remember_token", "=", $rememberToken)->first();
+
+        if($loggedUser == null) {
+            return response()->json([
+                "status" => 403
+            ], 403);
+        }
+
+        $device = $loggedUser->devices()->where("id", "=", $id)->first();
+
+        if($device == null) {
+            return response()->json([
+                "status" => 404
+            ], 404);
+        }
+
+        $device->delete();
+
+        return response()->json([
+            "status" => 200
+        ], 200);
+    }
 }

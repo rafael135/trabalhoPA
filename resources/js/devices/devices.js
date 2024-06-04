@@ -22,6 +22,7 @@ let activePagination = paginationBtn1;
 let paginationPageInput = document.querySelector("input#currentPageInput");
 let paginationTotalPages = document.querySelector("span#totalPages");
 const devicesLoadingStatus = document.querySelector("div.device-status");
+const createDeviceModalBtn = document.querySelector("button#createDeviceModalBtn");
 const formAddDevice = document.querySelector("form#formAddDevice");
 const addRememberTokenInput = formAddDevice.querySelector("input#rememberToken");
 const addInputBrand = formAddDevice.querySelector("input#brand");
@@ -37,17 +38,30 @@ const updateInputHoursPerDay = formUpdateDevice.querySelector("input#hoursPerDay
 let selectedRowToUpdate;
 let selectedDeviceId = 0;
 const updateDeviceBtn = document.querySelector("button#updateDeviceBtn");
+const deleteDeviceBtn = document.querySelector("button#deleteDeviceBtn");
+const confirmDeviceDeleteBtn = document.querySelector("button#confirmDeviceDeleteBtn");
 const updateModalStatus = document.querySelector("div#updateModalStatus");
 let devicesBody = document.querySelector("div#devices-body");
 let devices;
 const deviceRowTemplate = devicesBody.querySelector("div#device-template");
-let devicesBtns;
+let devicesViewsBtns;
+let devicesDeleteBtns;
 const updateBtns = () => {
-    devicesBtns = devicesBody.querySelectorAll("span");
-    devicesBtns.forEach((btn) => {
+    devicesViewsBtns = devicesBody.querySelectorAll("span.device-viewBtn");
+    devicesDeleteBtns = devicesBody.querySelectorAll("span.device-deleteBtn");
+    devicesViewsBtns.forEach((btn) => {
         btn.addEventListener("click", (e) => viewDevice(e));
     });
+    devicesDeleteBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => deleteDevice(e));
+    });
 };
+createDeviceModalBtn.addEventListener("click", () => {
+    addInputBrand.value = "";
+    addInputName.value = "";
+    addInputConsumptionPerHour.value = "";
+    addInputHoursPerDay.value = "";
+});
 addInputHoursPerDay.addEventListener("change", (e) => {
     if (Number.parseInt(addInputHoursPerDay.value) > 24) {
         addInputHoursPerDay.value = "24";
@@ -120,15 +134,38 @@ const addDeviceToDevicesBody = (device) => {
     newHoursPerDay.id = "";
     let newDeviceActions = newRow.querySelector("div#device-actions");
     newDeviceActions.id = "";
-    let newViewDeviceBtn = newDeviceActions.querySelector("span");
+    let newViewDeviceBtn = newDeviceActions.querySelector("span.device-viewBtn");
+    let newDeleteDeviceBtn = newDeviceActions.querySelector("span.device-deleteBtn");
     newBrand.innerText = device.brand;
     newName.innerText = device.name;
-    newConsumptionPerHour.innerText = device.consumption_per_hour.toString();
-    newHoursPerDay.innerText = device.hours_per_day.toString();
+    newConsumptionPerHour.innerText = `${device.consumption_per_hour.toString()} W`;
+    newHoursPerDay.innerText = `${device.hours_per_day.toString()} h`;
     newViewDeviceBtn.setAttribute("data-id", device.id.toString());
+    newDeleteDeviceBtn.setAttribute("data-id", device.id.toString());
     newRow.id = "";
     devicesBody.appendChild(newRow);
 };
+const deleteDevice = (e) => {
+    let deviceId = e.currentTarget.getAttribute("data-id");
+    selectedDeviceId = Number.parseInt(deviceId);
+    deleteDeviceBtn.click();
+};
+const confirmDeviceDelete = () => __awaiter(void 0, void 0, void 0, function* () {
+    let rememberToken = addRememberTokenInput.value;
+    let req = yield fetch(route("api.deleteDevice", { id: selectedDeviceId }), {
+        method: "DELETE",
+        headers: {
+            Authorization: rememberToken
+        },
+        credentials: "omit"
+    });
+    let res = yield req.json();
+    if (res.status == 200) {
+        getDevices();
+    }
+    deleteDeviceBtn.click();
+});
+confirmDeviceDeleteBtn.addEventListener("click", confirmDeviceDelete);
 formAddDevice.addEventListener("submit", (e) => __awaiter(void 0, void 0, void 0, function* () {
     e.preventDefault();
     let rememberToken = addRememberTokenInput.value;
@@ -193,7 +230,7 @@ const viewDevice = (e) => __awaiter(void 0, void 0, void 0, function* () {
     updateInputHoursPerDay.value = "";
     updateModalStatus.classList.add("loading");
     updateDeviceBtn.click();
-    let deviceId = e.target.parentElement.getAttribute("data-id");
+    let deviceId = e.currentTarget.getAttribute("data-id");
     let req = yield fetch(route("api.getDevice", { id: deviceId }), {
         method: "GET",
         headers: {
@@ -336,6 +373,13 @@ const validatePagination = () => __awaiter(void 0, void 0, void 0, function* () 
         }
         (totalPages < 3) ? paginationBtn3.parentElement.classList.add("disabled") : paginationBtn3.parentElement.classList.remove("disabled");
         (totalPages < 3) ? paginationNextBtn.parentElement.classList.add("disabled") : paginationNextBtn.parentElement.classList.remove("disabled");
+        if (currentPage + 1 > totalPages) {
+            paginationNextBtn.parentElement.classList.add("disabled");
+            (currentPage == totalPages) ? paginationBtn3.parentElement.classList.add("disabled") : paginationBtn3.parentElement.classList.remove("disabled");
+        }
+        else {
+            paginationNextBtn.parentElement.classList.remove("disabled");
+        }
     }
 });
 document.addEventListener("DOMContentLoaded", (e) => {

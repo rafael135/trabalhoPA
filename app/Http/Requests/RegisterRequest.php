@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Exceptions\AuthException;
+use App\Models\State;
 use App\Models\User;
 use Exception;
 use Illuminate\Foundation\Http\FormRequest;
@@ -30,7 +31,8 @@ class RegisterRequest extends FormRequest
             "name" => ["required", "string"],
             "email" => ["required", "string", "email"],
             "password" => ["required", "string"],
-            "passwordConfirm" => ["required", "string"]
+            "passwordConfirm" => ["required", "string"],
+            "state" => ["required", "string"]
         ];
     }
 
@@ -39,8 +41,9 @@ class RegisterRequest extends FormRequest
         $email = $this->input("email");
         $password = $this->input("password");
         $passwordConfirm = $this->input("passwordConfirm");
+        $state_acronym = $this->input("state");
 
-        //dd($name, $email, $password, $passwordConfirm);
+        //dd($name, $email, $password, $passwordConfirm, $state_acronym);
 
         if($password != $passwordConfirm) {
             return redirect("/register")->with("errors", [
@@ -48,9 +51,23 @@ class RegisterRequest extends FormRequest
             ]);
         }
 
+        if($state_acronym == null || $state_acronym == "") {
+            return redirect("/register")->with("errors", [
+                "invalidState" => true
+            ]);
+        }
+
+        $state = State::select()->where("state_acronym", "=", $state_acronym)->first();
+
+        if($state == null) {
+            return redirect("/register")->with("errors", [
+                "invalidState" => true
+            ]);
+        }
+
         try {
             User::create([
-                "state_id" => 24,
+                "state_id" => $state->id,
                 "name" => $name,
                 "email" => $email,
                 "password" => Hash::make($password)

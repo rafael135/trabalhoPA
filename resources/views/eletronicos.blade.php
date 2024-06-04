@@ -42,10 +42,11 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary mt-2">Adicionar</button>
-                        
+
 
                     </form>
-                    <button id="addDeviceModalBtnClose" type="button" class="btn-close d-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button id="addDeviceModalBtnClose" type="button" class="btn-close d-none" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
             </div>
         </div>
@@ -98,7 +99,8 @@
                         <button type="submit" class="btn btn-primary mt-2">Atualizar</button>
 
                     </form>
-                    <button id="updateDeviceModalBtnClose" type="button" class="btn-close d-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button id="updateDeviceModalBtnClose" type="button" class="btn-close d-none"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
             </div>
         </div>
@@ -106,9 +108,30 @@
 
     <button type="button" id="updateDeviceBtn" class="btn btn-primary d-none" data-bs-toggle="modal"
         data-bs-target="#updateDeviceModal">Update</button>
+    <button type="button" id="deleteDeviceBtn" class="btn btn-primary d-none" data-bs-toggle="modal"
+        data-bs-target="#deleteDeviceModal">Delete</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="deleteDeviceModal" tabindex="-1" aria-labelledby="deleteDeviceModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="deleteDeviceModalLabel">Confirmação de Exclusão</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Cofirmar exclusão do Eletrônico?
+                </div>
+                <div class="modal-footer d-flex">
+                    <button type="button" id="confirmDeviceDeleteBtn" class="btn btn-secondary btn-confirm">Sim</button>
+                    <button type="button" class="btn btn-primary btn-cancel" data-bs-dismiss="modal">Não</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main class="container">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+        <button id="createDeviceModalBtn" type="button" class="btn btn-primary" data-bs-toggle="modal"
             data-bs-target="#addDeviceModal">Adicionar</button>
 
         <div id="devices" class="d-flex flex-column">
@@ -120,7 +143,7 @@
                     Nome
                 </div>
                 <div class="">
-                    Consumo por hora(W)
+                    Consumo por hora
                 </div>
                 <div class="">
                     Uso diário
@@ -145,11 +168,19 @@
                     <div id="item-consumptionPerHour" class="device-consumptionPerHour"></div>
                     <div id="item-hoursPerDay" class="device-hoursPerDay"></div>
                     <div id="device-actions" class="device-actions">
-                        <span class="device-viewBtn" data-id="">
+                        <span class="device-viewBtn" data-id="" title="Visualizar">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-search" viewBox="0 0 16 16">
                                 <path
                                     d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                            </svg>
+                        </span>
+
+                        <span class="device-deleteBtn" data-id="" title="Deletar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
                             </svg>
                         </span>
                     </div>

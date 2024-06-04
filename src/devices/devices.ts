@@ -21,7 +21,7 @@ let paginationTotalPages = document.querySelector("span#totalPages") as HTMLSpan
 
 const devicesLoadingStatus = document.querySelector("div.device-status") as HTMLDivElement;
 
-
+const createDeviceModalBtn = document.querySelector("button#createDeviceModalBtn") as HTMLButtonElement;
 
 const formAddDevice = document.querySelector("form#formAddDevice") as HTMLFormElement;
 const addRememberTokenInput = formAddDevice.querySelector("input#rememberToken") as HTMLInputElement;
@@ -41,6 +41,8 @@ let selectedRowToUpdate: HTMLDivElement;
 let selectedDeviceId: number = 0;
 
 const updateDeviceBtn = document.querySelector("button#updateDeviceBtn") as HTMLButtonElement;
+const deleteDeviceBtn = document.querySelector("button#deleteDeviceBtn") as HTMLButtonElement;
+const confirmDeviceDeleteBtn = document.querySelector("button#confirmDeviceDeleteBtn") as HTMLButtonElement;
 
 const updateModalStatus = document.querySelector("div#updateModalStatus") as HTMLDivElement;
 
@@ -49,16 +51,29 @@ let devicesBody = document.querySelector("div#devices-body") as HTMLDivElement;
 let devices: NodeListOf<HTMLDivElement>;
 const deviceRowTemplate = devicesBody.querySelector("div#device-template") as HTMLDivElement;
 
-let devicesBtns: NodeListOf<HTMLSpanElement>;
+let devicesViewsBtns: NodeListOf<HTMLSpanElement>;
+let devicesDeleteBtns: NodeListOf<HTMLSpanElement>;
 
 const updateBtns = () => {
-    devicesBtns = devicesBody.querySelectorAll("span");
+    devicesViewsBtns = devicesBody.querySelectorAll("span.device-viewBtn");
+    devicesDeleteBtns = devicesBody.querySelectorAll("span.device-deleteBtn");
 
-    devicesBtns.forEach((btn) => {
+    devicesViewsBtns.forEach((btn) => {
         btn.addEventListener("click", (e) => viewDevice(e));
     });
 
+    devicesDeleteBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => deleteDevice(e))
+    });
+
 }
+
+createDeviceModalBtn.addEventListener("click", () => {
+    addInputBrand.value = "";
+    addInputName.value = "";
+    addInputConsumptionPerHour.value = "";
+    addInputHoursPerDay.value = ""
+});
 
 type Device = {
     id: number;
@@ -170,19 +185,55 @@ const addDeviceToDevicesBody = (device: Device) => {
     newHoursPerDay.id = "";
     let newDeviceActions = newRow.querySelector("div#device-actions") as HTMLDivElement;
     newDeviceActions.id = "";
-    let newViewDeviceBtn = newDeviceActions.querySelector("span") as HTMLSpanElement;
+    let newViewDeviceBtn = newDeviceActions.querySelector("span.device-viewBtn") as HTMLSpanElement;
+    let newDeleteDeviceBtn = newDeviceActions.querySelector("span.device-deleteBtn") as HTMLSpanElement;
 
 
     newBrand.innerText = device.brand;
     newName.innerText = device.name;
-    newConsumptionPerHour.innerText = device.consumption_per_hour.toString();
-    newHoursPerDay.innerText = device.hours_per_day.toString();
+    newConsumptionPerHour.innerText = `${device.consumption_per_hour.toString()} W`;
+    newHoursPerDay.innerText = `${device.hours_per_day.toString()} h`;
     newViewDeviceBtn.setAttribute("data-id", device.id.toString());
+    newDeleteDeviceBtn.setAttribute("data-id", device.id.toString());
 
     newRow.id = "";
 
     devicesBody.appendChild(newRow);
 }
+
+const deleteDevice = (e: MouseEvent) => {
+    let deviceId = (e.currentTarget! as HTMLSpanElement)!.getAttribute("data-id");
+    selectedDeviceId = Number.parseInt(deviceId!);
+
+    deleteDeviceBtn.click();
+}
+
+type DeleteDeviceResponse = {
+    status: number;
+}
+
+const confirmDeviceDelete = async () => {
+    let rememberToken = addRememberTokenInput.value!;
+
+    // @ts-expect-error
+    let req = await fetch(route("api.deleteDevice", { id: selectedDeviceId }), {
+        method: "DELETE",
+        headers: {
+            Authorization: rememberToken
+        },
+        credentials: "omit"
+    });
+
+    let res: DeleteDeviceResponse = await req.json();
+
+    if(res.status == 200) {
+        getDevices();
+    }
+
+    deleteDeviceBtn.click();
+}
+
+confirmDeviceDeleteBtn.addEventListener("click", confirmDeviceDelete);
 
 type CreateDeviceResponse = {
     device: Device;
@@ -281,9 +332,7 @@ const viewDevice = async (e: MouseEvent) => {
     updateModalStatus.classList.add("loading");
     updateDeviceBtn.click();
 
-    console.log((e.target! as HTMLSpanElement).parentElement!);
-
-    let deviceId = (e.target! as HTMLSpanElement).parentElement!.getAttribute("data-id");
+    let deviceId = (e.currentTarget! as HTMLSpanElement)!.getAttribute("data-id");
 
     // @ts-expect-error
     let req = await fetch(route("api.getDevice", { id: deviceId }), {
@@ -378,7 +427,7 @@ paginationPageInput.addEventListener("change", (e) => {
     }
     currentPage = page;
     getDevices();
-})
+});
 
 const validatePagination = async () => {
     if (totalPages >= 3) {
@@ -462,6 +511,13 @@ const validatePagination = async () => {
 
         (totalPages < 3) ? paginationBtn3.parentElement!.classList.add("disabled") : paginationBtn3.parentElement!.classList.remove("disabled");
         (totalPages < 3) ? paginationNextBtn.parentElement!.classList.add("disabled") : paginationNextBtn.parentElement!.classList.remove("disabled");
+
+        if (currentPage + 1 > totalPages) {
+            paginationNextBtn.parentElement!.classList.add("disabled");
+            (currentPage == totalPages) ? paginationBtn3.parentElement!.classList.add("disabled") : paginationBtn3.parentElement!.classList.remove("disabled");
+        } else {
+            paginationNextBtn.parentElement!.classList.remove("disabled");
+        }
     }
 }
 
@@ -470,5 +526,4 @@ document.addEventListener("DOMContentLoaded", (e) => {
     setTimeout(() => {
         getDevices();
     }, 200);
-    
 });

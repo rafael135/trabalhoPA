@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create("device_costs", function (Blueprint $table) {
             $table->id();
-            $table->foreignId("user_id")->references("id")->on("users");
-            $table->foreignId("device_id")->references("id")->on("devices");
+            $table->foreignId("user_id")->references("id")->on("users")->cascadeOnDelete();
+            $table->foreignId("device_id")->references("id")->on("devices")->cascadeOnDelete();
             $table->float("kw_cost_per_hour")->nullable(false);
             $table->float("kw_cost")->nullable(false);
             $table->float("total_kw_consumed")->nullable(false);

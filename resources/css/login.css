@@ -93,9 +93,10 @@ div.fundo{
     display: flex;
     flex-direction: column;
     margin-bottom: 0.3rem;
+    width: 100%;
 }
 
-.input-box input {
+.input-box input,select {
     margin: 10px;
     padding: 0.8rem 1.2rem;
     border: none;
@@ -104,15 +105,15 @@ div.fundo{
     font-size: 0.8rem;
 }
 
-.input-box input:hover {
+.input-box input:hover,select:hover {
     background-color: #eeeeee75;
 }
 
-.input-box input:focus-visible {
+.input-box input:focus-visible,select:focus-visible {
     outline: 1px solid #6c63ff;
 }
 
-.input-box input::placeholder {
+.input-box input::placeholder,select::placeholder {
     color: #000000be;
 }
 
